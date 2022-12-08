@@ -52,6 +52,12 @@ class Account < ApplicationRecord
     sum_transactions(deposits) - sum_transactions(withdraws)
   end
 
+  # Muda status da conta
+  def toggle_active
+    account.active
+    account.update_attribute(:active, !account.active)
+  end
+
   private
 
   # Soma o valor de todas as transacoes (deposits e withdraw)
