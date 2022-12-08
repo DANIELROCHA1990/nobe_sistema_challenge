@@ -14,6 +14,10 @@ RSpec.describe Account, type: :model do
     end
     let(:withdraw_value) { 350 }
 
+    context 'associations' do
+      it { should belong_to(:user) }
+    end
+
     context 'with ballance' do
       subject { account.withdraw(deposit_value) }
       before { deposit }
