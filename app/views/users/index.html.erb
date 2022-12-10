@@ -1,0 +1,13 @@
+
+<h1> Users <h1>
+
+<a>
+  <%= link_to "Atualiza User", edit_user_registration_path, method: :get %>
+</a><br />
+<a>
+  <%= link_to "Accounts", user_accounts_path(current_user.id) , method: :get, class: "btn btn-success mb-1"%>
+</a><br />
+<a>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-success mb-4" %>
+</a><br />
+
