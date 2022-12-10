@@ -16,6 +16,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'dotenv-rails'
 gem 'bootstrap-sass'
+gem 'simple_form', '~> 5.1'
 
 group :development, :test do
   gem 'byebug'

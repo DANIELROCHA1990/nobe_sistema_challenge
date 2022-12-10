@@ -1,0 +1,18 @@
+<%= form_for(Transaction.new, url: @url) do |f| %>
+  <% if @error.present? %>
+    <h4> <%= @error %> </h4>
+  <% end %>
+
+  <% if @kind == 'transfer' %>
+    <%= f.select("to_account_id", @accounts.map {|acc| [ "Conta - #{acc.id} : Destinatário - #{acc.user.username}", acc.id ] }, { include_blank: true }) %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit @kind %>
+  </div>
+<% end %>

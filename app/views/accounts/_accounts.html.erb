@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+<table class="table table-bordered table-dark table-striped">
+  <thead class="text-center">
+    <tr>
+      <th>Criada em</th>
+      <th>Id da Conta</th>
+      <th>Opcoes</th>
+    </tr>
+  </thead>
+  <tbody style="text-align:center">
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%=account.created_at.strftime("%d/%m/%Y, as %H:%M:%S") %></td>
+        <td><%= account.id %></td>
+        <td>
+          <%= link_to 'Ver Conta', user_account_path(user_id: current_user.id, id: account.id), class: "btn btn-primary" %>
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
