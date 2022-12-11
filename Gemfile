@@ -5,7 +5,7 @@ ruby "3.0.2"
 
 gem "rails", "~> 7.0.4"
 gem "sprockets-rails"
-gem "pg", "~> 1.1", group: :production
+gem 'pg', group: :production
 gem "puma", "~> 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
