@@ -17,10 +17,10 @@ gem "bootsnap", require: false
 gem 'dotenv-rails'
 gem 'bootstrap-sass'
 gem 'simple_form', '~> 5.1'
+gem 'devise', group: [:development, :test, :production]
 
 group :development, :test do
   gem 'byebug'
-  gem 'devise'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
