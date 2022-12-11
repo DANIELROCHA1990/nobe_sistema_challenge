@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_account, except: [:index, :new]
+  before_action :set_account, except: [:index, :new, :create]
 
   def index
     @accounts = current_user.accounts.order(id: :asc)
@@ -13,7 +13,6 @@ class AccountsController < ApplicationController
   end
 
   def create
-    byebug
     @account = Account.new(user: current_user)
     if @account.save
       redirect_to user_accounts_path
