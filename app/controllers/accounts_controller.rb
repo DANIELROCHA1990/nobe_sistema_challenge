@@ -13,6 +13,7 @@ class AccountsController < ApplicationController
   end
 
   def create
+    byebug
     @account = Account.new(user: current_user)
     if @account.save
       redirect_to user_accounts_path
