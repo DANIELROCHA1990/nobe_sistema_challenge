@@ -9,7 +9,7 @@
   <tbody style="text-align:center">
     <% @accounts.each do |account| %>
       <tr>
-        <td><%=account.created_at.strftime("%d/%m/%Y, as %H:%M:%S") %></td>
+        <td><%=account.created_at.strftime("%d/%m/%Y, as %H:%M") %></td>
         <td><%= account.id %></td>
         <td>
           <div class="btn btn-outline-info border-dark">
