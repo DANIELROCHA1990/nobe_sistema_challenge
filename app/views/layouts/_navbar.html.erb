@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark" style="background-color:#000080!important;">
+  <a class="navbar-brand">
+    <%= link_to 'Nobe Bank', root_path, class:"nav-link"%>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          <div class="dropdown show">
+            <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+
+            <div class="dropdown-menu bg-primary"  aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item bg-primary" href="<%=user_accounts_path(user_id: current_user.id)%>">
+                Contas Cadastradas
+              </a>
+            </div>
+          </div>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <div class="dropdown"> Opções
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+          <%= button_to "Editar", edit_user_registration_path, method: :get, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </span>
+  </div>
+</nav>

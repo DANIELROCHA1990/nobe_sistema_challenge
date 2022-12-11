@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
-<table class="table table-bordered table-dark table-striped">
-  <thead class="text-center">
+<table class="table table-bordered table-ligth table-striped">
+  <thead class="text-center" style="background-color:#AAA!important;">
     <tr>
       <th>Criada em</th>
       <th>Id da Conta</th>
@@ -13,7 +13,9 @@
         <td><%=account.created_at.strftime("%d/%m/%Y, as %H:%M:%S") %></td>
         <td><%= account.id %></td>
         <td>
-          <%= link_to 'Ver Conta', user_account_path(user_id: current_user.id, id: account.id), class: "btn btn-primary" %>
+          <div class="btn btn-outline-info border-dark">
+            <%= link_to 'Ver Conta', user_account_path(user_id: current_user.id, id: account.id) %>
+          </div>
         </td>
       </tr>
     <%end%>

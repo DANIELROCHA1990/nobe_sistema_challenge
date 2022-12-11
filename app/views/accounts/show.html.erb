@@ -1,12 +1,25 @@
-<h3> Saldo R$ <%= @account.ballance %> </h3>
+<nav class="container border border-dark" style= "margin-top: 20px;">
+  <div class="d-flex justify-content-around" style= "margin-top: 15px;">
+    <h3> Saldo R$ <%= @account.ballance %> </h3>
+  </div><br />
 
-<h3>Extrato</h3>
-<%= render 'transactions/extract_form' %>
+  <div class="d-flex justify-content-around">
+    <h3>Extrato</h3>
+  </div><br />
+    <%= render 'transactions/extract_form' %>
+  <div class="d-flex justify-content-around">
+    <div class="btn btn-outline-info border-dark">
+      <%= link_to 'Depósito', new_user_account_transaction_path(user_id: current_user.id, account_id: @account.id, kind: :deposit) %>
+    </div>
+    <div class="btn btn-outline-info border-dark">
+      <%= link_to 'Saque', new_user_account_transaction_path(user_id: current_user.id, account_id: @account.id, kind: :withdraw) %>
+    </div>
+    <div class="btn btn-outline-info border-dark">
+      <%= link_to 'Transferência', new_user_account_transaction_path(user_id: current_user.id, account_id: @account.id, kind: :transfer) %>
+    </div>
+  </div><br />
 
-<%= link_to 'Depósito',      new_user_account_transaction_path(user_id: current_user.id, account_id: @account.id, kind: :deposit) %>
-<%= link_to 'Saque',         new_user_account_transaction_path(user_id: current_user.id, account_id: @account.id, kind: :withdraw) %>
-<%= link_to 'Transferência', new_user_account_transaction_path(user_id: current_user.id, account_id: @account.id, kind: :transfer) %>
-
-<h4> Transacoes </h4>
-
-<%= render 'transactions/list', transactions: @account.transactions%>
+  <div>
+    <%= render 'transactions/list', transactions: @account.transactions%>
+  </div>
+</nav>
