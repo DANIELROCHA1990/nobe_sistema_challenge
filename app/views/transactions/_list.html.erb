@@ -1,0 +1,18 @@
+<table class="table table-bordered table-ligth table-striped">
+  <thead class="text-center" style="background-color:#AAA!important;">
+    <tr>
+      <th>Data</th>
+      <th>Tipo</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody style="text-align:center">
+    <% transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.created_at.strftime("%m/%d/%Y | %H:%M") %></td>
+        <td><%= transaction.kind %></td>
+        <td>R$ <%= transaction.value %></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>

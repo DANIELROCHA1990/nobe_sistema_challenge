@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-around">
+  <%= form_tag(extract_user_account_transactions_path(user_id: current_user.id, account_id: @account.id), method: :get) do %>
+
+    <%= label_tag 'Data de Início' %>
+    <%= date_field_tag 'from_date' %>
+
+    <%= label_tag 'Data de Término' %>
+    <%= date_field_tag 'to_date' %>
+
+    <div class="d-flex justify-content-around">
+      <%= submit_tag 'Solicitar Extrato' %>
+    </div>
+  <% end %>
+</div><br /><br />
