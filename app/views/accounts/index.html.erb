@@ -1,5 +1,9 @@
-<h1> Accounts <h1>
-<h2><%="Ola, #{current_user.name}"%><h2>
-<p>
-  <%= "Você possue #{@accounts.length} contas" %>
-</p>
+<br />
+<h2>
+  Olá, <%=current_user.username%>! Você possue <%= @accounts.length %> conta(s) favoritadas<br />
+<h2><br />
+<div>
+  <%= button_to "Cadastrar Conta", user_accounts_path(user_id: current_user.id), method: :post, class: "btn btn-primary" %>
+</div>
+<%= render 'accounts', accounts: @accounts %>
+

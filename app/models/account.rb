@@ -1,5 +1,4 @@
 class Account < ApplicationRecord
-  # constante com business hour
   belongs_to :user
   has_many :transactions
 
@@ -26,22 +25,18 @@ class Account < ApplicationRecord
 
   # Realiza transaferencia
   def transfer(to_account, value)
-    if transfer_ballance(value)
-      withdraw(value)
-      withdraw(hour_transfer_tax)
-      to_account.deposit(value)
-    else
-      raise 'You have no enough ballance for this transaction'
-    end
+    raise 'You have no enough ballance for this transaction' unless transfer_ballance(value)
+
+    withdraw(value)
+    withdraw(hour_transfer_tax)
+    to_account.deposit(value)
   end
 
   # Mostra o extrato
   def extract(start_date, end_date)
-    if valid_date?(end_date) && valid_date?(start_date)
-      transactions.where(created_at: start_date.midnight..end_date.end_of_day)
-    else
-      raise 'Choose a valid date'
-    end
+    raise 'Choose a valid date' unless valid_date?(end_date) && valid_date?(start_date)
+
+    transactions.where(created_at: start_date.midnight..end_date.end_of_day)
   end
 
   # Define o saldo
@@ -54,8 +49,7 @@ class Account < ApplicationRecord
 
   # Muda status da conta
   def toggle_active
-    account.active
-    account.update_attribute(:active, !account.active)
+    update_attribute(:active, !active)
   end
 
   private
